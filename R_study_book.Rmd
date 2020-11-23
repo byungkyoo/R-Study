@@ -1,0 +1,38 @@
+---
+title: "Do_it_R"
+author: "Byung Kweon Yoo"
+date: "11/22/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## install package
+```{r}
+#install.packages("ggplot2")
+library(ggplot2)
+library(gridExtra)
+#par(mfrow=c(2,2))
+
+par(mfrow = c(2, 2))
+
+
+p1 <- qplot(data=mpg, x=hwy)
+p2 <- qplot(data=mpg, x=cty)
+
+p3 <- qplot(data=mpg, x=drv, y=hwy)
+p4 <- qplot(data=mpg, x=drv, y=hwy, geom = "line")
+
+p5 <- qplot(data=mpg, x=drv, y=hwy, geom = "boxplot")
+p6 <- qplot(data=mpg, x=drv, y=hwy, geom = "boxplot", colour = drv)
+require(gridExtra)
+
+grid.arrange(p1,p2, ncol=2)
+grid.arrange(p3,p4, ncol=2)
+grid.arrange(p5,p6, ncol=2)
+
+
+```
+
